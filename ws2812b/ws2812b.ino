@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
-#define PIN 8
-#define NUM_LEDS 60
+#define PIN 8 //LED'in Din pinini yazın
+#define NUM_LEDS 60 //Kaç tane LED'iniz varsa buraya yazın
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 int mod;
 int lastmod;
@@ -588,17 +588,6 @@ void setAll(byte red, byte green, byte blue) {
   }
   showStrip();
 }
-/*bool SerialEvent() {
-  if (Serial.available()) {
-    lastmod = Serial.read();
-    if (lastmod != 0) {
-      mod = lastmod;
-      return true;
-    }
-  }
-  Serial.println("False abe");
-  return false;
-  }*/
 bool serialEvent() {
   if (Serial.available()) {
     veri = Serial.readString();
