@@ -1,5 +1,5 @@
 # (Arduino + WS2812B LED + .Net Framework) PC Kontrolcüsü
-![image](https://github.com/YasarKah/WS2812B-Arduino-PC/blob/main/strip.png)
+![image](https://github.com/YasarKah/WS2812B-Arduino-PC/blob/main/LedStrip.png)
 ## Özet
 
 Bu proje WS2812B Adreslenebilir Şerit LED'i Arduino ile Bilgisayar üzerinden kontrol etmeye yarar.
