@@ -12,9 +12,9 @@ Arduino Nano.
 ## Başlarken
 
 ### Bağlantılar
-Bağlantıları şekildeki gibi yapın. Bağlantıları yaparken LED üzerindeki ok yönüne dikkat edin.
-Arduino GND - WS2812B GND - Adaptör GND
-Arduino Pın 8 - WS2812B Din
+Bağlantıları şekildeki gibi yapın. Bağlantıları yaparken LED üzerindeki ok yönüne dikkat edin.<br />
+Arduino GND - WS2812B GND - Adaptör GND<br />
+Arduino Pın 8 - WS2812B Din<br />
 Adaptör 5V - WS2812B 5V
 
 ![image](https://github.com/YasarKah/WS2812B-Arduino-PC/blob/main/schematic.png)
