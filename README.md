@@ -31,5 +31,6 @@ Projede Visual Studio çalışma dosyası verilmiştir.
 1. SeriPortProgrami Çalışma Dosyası (https://github.com/YasarKah/WS2812B-Arduino-PC/tree/main/SeriPortProgrami).
 
 ## .Net Framework Yazılımı Derlenmiş Sürümü
+
 Programı doğrudan çalıştırıp kullanmak için;<br />
-1.SeriPortProgrami (https://github.com/YasarKah/WS2812B-Arduino-PC/tree/main/SeriPortProgrami.exe).
+1. SeriPortProgrami (https://github.com/YasarKah/WS2812B-Arduino-PC/tree/main/SeriPortProgrami.exe).
