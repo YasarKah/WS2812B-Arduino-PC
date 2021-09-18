@@ -1,10 +1,12 @@
 #include <Adafruit_NeoPixel.h>
-#define PIN 8 //LED'in Din pinini yazın
-#define NUM_LEDS 60 //Kaç tane LED'iniz varsa buraya yazın
+#define PIN 12 //LED'in Din pinini yazın
+#define NUM_LEDS 53 //Kaç tane LED'iniz varsa buraya yazın
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 int mod;
 int lastmod;
 String veri;
+int randommod;
+int parlaklik = 0;
 void setup() {
   strip.begin();
   strip.show();
@@ -43,7 +45,6 @@ void loop() {
       Serial.println("Sparkle");
       Sparkle(0xff, 0xff, 0xff, 0);
       break;
-
     case 8:
       Serial.println("SnowSparkle");
       SnowSparkle(0x10, 0x10, 0x10, 20, random(100, 1000));
@@ -81,9 +82,108 @@ void loop() {
       Serial.println("meteorRain");
       meteorRain(0xff, 0xff, 0xff, 10, 64, true, 30);
       break;
+    case 17:
+      Serial.println("Red");
+      setAll(255, 0, 0);
+      break;
+    case 18:
+      Serial.println("Green");
+      setAll(0, 255, 0);
+      break;
+    case 19:
+      Serial.println("Blue");
+      setAll(0, 0, 255);
+      break;
+    case 20:
+      Serial.println("On");
+      randommod = random(1, 19);
+      switch (randommod) {
+        case 1:
+          Serial.println("RGBLoop");
+          RGBLoop();
+          break;
+        case 2:
+          Serial.println("Strobe");
+          Strobe(0xff, 0xff, 0xff, 10, 50, 1000);
+          break;
+        case 3:
+          Serial.println("HalloweenEyes");
+          HalloweenEyes(0xff, 0x00, 0x00, 1, 4, true, random(5, 50), random(10, 50), random(50, 300));
+          break;
+        case 4:
+          Serial.println("NewKITT RightToLeft");
+          NewKITT(0xff, 0, 0, 8, 10, 50);
+          break;
+        case 5:
+          Serial.println("Twinkle");
+          Twinkle(0xff, 0, 0, 10, 100, false);
+          break;
+        case 6:
+          Serial.println("TwinkleRandom");
+          Twinkle(0xff, 0, 0, 10, 100, false);
+          break;
+        case 7:
+          Serial.println("Sparkle");
+          Sparkle(0xff, 0xff, 0xff, 0);
+          break;
+        case 8:
+          Serial.println("SnowSparkle");
+          SnowSparkle(0x10, 0x10, 0x10, 20, random(100, 1000));
+          break;
+        case 9:
+          Serial.println("RunningLights");
+          RunningLights(0xff, 0xff, 0x00, 50);
+          break;
+        case 10:
+          Serial.println("colorWipe");
+          colorWipe(0x00, 0xff, 0x00, 50);
+          colorWipe(0xff, 0x00, 0x00, 50);
+          break;
+        case 11:
+          Serial.println("rainbowCycle");
+          rainbowCycle(20);
+          break;
+        case 12:
+          Serial.println("theaterChase");
+          theaterChase(0xff, 0, 0, 50);
+          break;
+        case 13:
+          Serial.println("theaterChaseRainbow");
+          theaterChaseRainbow(50);
+          break;
+        case 14:
+          Serial.println("Fire");
+          Fire(55, 120, 15);
+          break;
+        case 15:
+          Serial.println("BouncingBalls");
+          meteorRain(0xff, 0xff, 0xff, 10, 64, true, 30);
+          break;
+        case 16:
+          Serial.println("meteorRain");
+          meteorRain(0xff, 0xff, 0xff, 10, 64, true, 30);
+          break;
+        case 17:
+          Serial.println("Red");
+          setAll(255, 0, 0);
+          break;
+        case 18:
+          Serial.println("Green");
+          setAll(0, 255, 0);
+          break;
+        case 19:
+          Serial.println("Blue");
+          setAll(0, 0, 255);
+          break;
+      }
+      break;
+    case 21:
+      Serial.println("OFF");
+      setAll(0, 0, 0);
+      break;
     default:
-      Serial.println("Strobe");
-      Strobe(0xff, 0xff, 0xff, 10, 50, 1000);
+      //Serial.println("Red");
+      setAll(255, 0, 0);
       break;
   }
 }
@@ -392,7 +492,7 @@ void Twinkle(byte red, byte green, byte blue, int Count, int SpeedDelay, boolean
 void NewKITT(byte red, byte green, byte blue, int EyeSize, int SpeedDelay, int ReturnDelay) {
   RightToLeft(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
   LeftToRight(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
-    /*OutsideToCenter(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
+  /*OutsideToCenter(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
     CenterToOutside(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
     LeftToRight(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
     RightToLeft(red, green, blue, EyeSize, SpeedDelay, ReturnDelay);
@@ -591,8 +691,16 @@ void setAll(byte red, byte green, byte blue) {
 bool serialEvent() {
   if (Serial.available()) {
     veri = Serial.readString();
-    mod = veri.toInt();
-    return true;
+    if (veri.charAt(0) == 'b') {
+      veri = veri.substring(1, 4);
+      parlaklik = veri.toInt();
+      parlaklik = map(parlaklik, 0, 100, 0, 255);
+      strip.setBrightness(parlaklik);
+    }
+    else {
+      mod = veri.toInt();
+      return true;
+    }
   }
   return false;
 }
