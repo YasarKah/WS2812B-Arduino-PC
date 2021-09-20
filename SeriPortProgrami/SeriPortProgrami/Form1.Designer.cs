@@ -59,11 +59,9 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxSeriPortlar
@@ -303,12 +301,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.hScrollBar1);
             this.groupBox2.Controls.Add(this.button21);
             this.groupBox2.Controls.Add(this.button20);
             this.groupBox2.Controls.Add(this.button19);
             this.groupBox2.Controls.Add(this.button18);
             this.groupBox2.Controls.Add(this.button17);
-            this.groupBox2.Controls.Add(this.trackBar1);
             this.groupBox2.Location = new System.Drawing.Point(12, 39);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(654, 124);
@@ -380,20 +378,12 @@
             this.button17.UseVisualStyleBackColor = false;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(7, 73);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(637, 45);
-            this.trackBar1.TabIndex = 0;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
             // hScrollBar1
             // 
             this.hScrollBar1.LargeChange = 1;
-            this.hScrollBar1.Location = new System.Drawing.Point(12, 391);
+            this.hScrollBar1.Location = new System.Drawing.Point(7, 80);
             this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(654, 30);
+            this.hScrollBar1.Size = new System.Drawing.Size(637, 30);
             this.hScrollBar1.TabIndex = 1;
             this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             this.hScrollBar1.ValueChanged += new System.EventHandler(this.hScrollBar1_ValueChanged);
@@ -403,8 +393,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 531);
-            this.Controls.Add(this.hScrollBar1);
+            this.ClientSize = new System.Drawing.Size(680, 411);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSend);
@@ -417,8 +406,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,7 +439,6 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button19;
