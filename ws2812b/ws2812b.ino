@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 12 //LED'in Din pinini yazın
-#define NUM_LEDS 53 //Kaç tane LED'iniz varsa buraya yazın
+#define NUM_LEDS 171 //Kaç tane LED'iniz varsa buraya yazın
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 int mod;
 int lastmod;
@@ -15,7 +15,6 @@ void setup() {
 }
 
 void loop() {
-
   switch (mod) {
     case 1:
       Serial.println("RGBLoop");
@@ -94,7 +93,7 @@ void loop() {
       Serial.println("Blue");
       setAll(0, 0, 255);
       break;
-    case 20:
+    case 20:r
       Serial.println("On");
       randommod = random(1, 19);
       switch (randommod) {
@@ -681,13 +680,13 @@ void setPixel(int Pixel, byte red, byte green, byte blue) {
   leds[Pixel].b = blue;
 #endif
 }
-
 void setAll(byte red, byte green, byte blue) {
   for (int i = 0; i < NUM_LEDS; i++ ) {
     setPixel(i, red, green, blue);
   }
   showStrip();
 }
+
 bool serialEvent() {
   if (Serial.available()) {
     veri = Serial.readString();
